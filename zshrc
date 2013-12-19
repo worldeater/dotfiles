@@ -21,10 +21,10 @@ alias sagent="pkill ssh-agent; eval \$(/usr/bin/ssh-agent) && ssh-add"
 alias shutdown="/usr/local/bin/sudo shutdown -p now"
 alias startx="/usr/local/bin/startx -- -nolisten tcp"
 
-alias brightness="sudo sysctl dev.acpi_ibm.0.lcd_brightness"
-alias   dark="brightness=0"
-alias medium="brightness=4"
-alias bright="brightness=7"
+alias brightness=""
+alias   dark="sudo sysctl dev.acpi_ibm.0.lcd_brightness=0"
+alias medium="sudo sysctl dev.acpi_ibm.0.lcd_brightness=4"
+alias bright="sudo sysctl dev.acpi_ibm.0.lcd_brightness=7"
 
 case $TERM in
   xterm*|rxvt)
