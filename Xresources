@@ -1,0 +1,86 @@
+Xcursor.theme:  redglass
+Xcursor.size:   24
+!-------------------------------------------------------------------
+Xft.antialias:  1
+Xft.autohint:   0
+Xft.dpi:        96
+Xft.hinting:    1
+Xft.hintstyle:  hintsfull
+Xft.lcdfilter:  lcddefault
+Xft.rgba:       rgb
+!-------------------------------------------------------------------
+XTerm*faceName:             xft:Monospace:pixelsize=11
+XTerm*boldFont:             xft:Monospace:pixelsize=11
+XTerm*cacheDoublesize:      0
+XTerm*charClass:            33:48,35-38:48,39:43,42-47:48,58-59:48,61:48,63-64:48,126:48
+XTerm*deleteIsDEL:          true
+XTerm*eightBitInput:        false
+XTerm*geometry:             80x25-100+35
+XTerm*highlightSelection:   false
+XTerm*metaSendsEscape:      false
+XTerm*saveLines:            5000
+XTerm*scrollBar:            false
+XTerm*scrollKey:            true
+XTerm*scrollTtyOutput:      false
+XTerm*selectToClipboard:    false
+XTerm*visualBell:           false
+!-------------------------------------------------------------------
+! These three font settings correspond to gvim´s  ":set guifont=Envy\ Code\ R\ 11"
+URxvt.font:                 xft:Envy Code R:pixelsize=13
+URxvt.boldFont:             xft:Envy Code R:pixelsize=13:bold
+URxvt.letterSpace:          -1
+
+URxvt.perl-ext:             default,matcher,-selection
+URxvt.url-launcher:         /usr/local/bin/opera
+URxvt.matcher.button:       3
+URxvt.scrollWithBuffer:     false
+URxvt.skipScroll:           true
+URxvt.iso14755:             false
+URxvt.iso14755_52:          false
+URxvt.depth:                32
+URxvt.background:           rgba:ffff/ffff/ffff/dddd
+URxvt.borderColor:          rgba:ffff/ffff/ffff/dddd
+URxvt.tintColor:            #ffffff
+URxvt.shading:              0
+URxvt.externalBorder:       0
+URxvt.internalBorder:       2
+URxvt.fading:               0
+URxvt.geometry:             92x26
+URxvt.iconFile:             /usr/local/kde4/share/icons/oxygen/32x32/apps/utilities-terminal.png
+URxvt.inheritPixmap:        false
+URxvt.jumpScroll:           false
+URxvt.saveLines:            5000
+URxvt.scrollBar:            false
+URxvt.visualBell:           true
+! Toggle transparency
+URxvt.keysym.F11:           command:\033]10;rgba:0000/0000/0000/3333\007\033]11;rgba:ffff/ffff/ffff/3333\007
+URxvt.keysym.S-F11:         command:\033]10;rgba:0000/0000/0000/ffff\007\033]11;rgba:ffff/ffff/ffff/dddd\007
+! Toggle font size
+URxvt.keysym.F12:           command:\033]710;xft:Envy Code R:pixelsize=14\007\033]711;xft:Envy Code R:pixelsize=14:style=bold\007
+URxvt.keysym.S-F12:         command:\033]710;xft:Envy Code R:pixelsize=13\007\033]711;xft:Envy Code R:pixelsize=13:style=bold\007
+!-------------------------------------------------------------------
+! black
+*color0:                    #000000
+*color8:                    #3c3c3c
+! red
+*color1:                    #c00000
+*color9:                    #ff0000
+! green
+*color2:                    #3c9200
+*color10:                   #6ab915
+! yellow
+*color3:                    #bd9800
+*color11:                   #ffcd00
+! blue
+*color4:                    #203e80
+*color12:                   #3963b3
+! magenta
+*color5:                    #9a70b2
+*color13:                   #ad73ba
+! cyan
+*color6:                    #1d999a
+*color14:                   #338eaa
+! white
+*color7:                    #909090
+*color15:                   #ffffff
+
