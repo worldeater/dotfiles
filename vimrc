@@ -1,6 +1,7 @@
 set autoindent
 set backspace=2
 set directory=~/.vim/swap
+set fileencodings=utf8,latin1
 set expandtab
 set hlsearch
 set ignorecase
@@ -38,7 +39,7 @@ set wildmenu
 if has("gui_running")
   set background=dark
   set clipboard=unnamedplus  " enable sane cut'n'paste (1/2)
-  set encoding=utf-8
+  set encoding=utf8
   set guioptions=""
   set guioptions+=L          " second scrollbar for split windows
   set guioptions+=M          " don't load menu.vim
@@ -88,14 +89,14 @@ inoremap <C-N> <ESC>:tabn<CR>
 
 " Plugins
 noremap <C-E> :NERDTreeToggle<CR>
-noremap <C-Y> :TlistToggle<CR>
-map     <C-B> <nop>
 
 " Need sane movement
 noremap  <C-H> <C-B>
 noremap  <C-J> <C-E>
 noremap  <C-K> <C-Y>
 noremap  <C-L> <C-F>
+map      <C-B> <nop>
+map      <C-Y> <nop>
 " Make j and k work as expected in wrapped lines
 map j gj
 map k gk
@@ -103,8 +104,8 @@ map k gk
 " Window stuff
 map <C-W>< <nop>
 map <C-W>> <nop>
-noremap <C-W>, :vertical resize -3<CR>
-noremap <C-W>. :vertical resize +3<CR>
+noremap <C-W>+ :vertical resize -3<CR>
+noremap <C-W># :vertical resize +3<CR>
 
 " Save via sudo
 cmap w!! w !sudo tee >/dev/null %
@@ -116,8 +117,8 @@ nnoremap <leader>q       :tabdo q!<cr>
 nnoremap <leader>z       :tabdo wq!<cr>
 nnoremap <leader>D       :set ff=unix<cr>
 nnoremap <leader>d       :set ff=dos<cr>
-nnoremap <leader>L       :set enc=utf8<cr>
-nnoremap <leader>l       :set enc=latin1<cr>
+nnoremap <leader>L       :set fenc=utf8<cr>
+nnoremap <leader>l       :set fenc=latin1<cr>
 
 " Use tab instead of % for parens matching
 nnoremap <tab> %
@@ -161,7 +162,7 @@ function! SetStatusLine()
     else
       let statusline.="%#StatusLineWhite#rw%*"
     endif
-    let statusline.="  enc:%#StatusLineWhite#%{&enc}%*"
+    let statusline.="  enc:%#StatusLineWhite#%{&fenc}%*"
     let statusline.="  ff:%#StatusLineWhite#%{&ff}%*"
     let statusline.="  %15.15(%c/%l%) "
   endif
