@@ -6,7 +6,7 @@ set expandtab
 set hlsearch
 set ignorecase
 set lazyredraw
-set linespace=2
+set linespace=1
 set list
 exec "set listchars=eol:\uAC,tab:\uAB\uBB,trail:\uB7"
 set ls=2
@@ -49,7 +49,7 @@ if has("gui_running")
   set guioptions+=i          " window icon
   set guioptions+=r          " vertical scrollbar
   set columns=100
-  set lines=44
+  set lines=40
   set guitablabel=%t\ %M
   set guifont=Envy\ Code\ R\ 10
   noremap  <F12>   :set guifont=Envy\ Code\ R\ 11<CR>
@@ -79,6 +79,10 @@ vnoremap <F1> <nop>
 noremap  Q    <nop>
 noremap  K    <nop>
 
+" Make F3 the "goto next/prev search result" key
+noremap  <F3>    n
+noremap  <S-F3>  N
+
 " Tabs
 noremap  <C-T> <ESC>:tabe<CR>:tabm<CR>
 inoremap <C-T> <ESC>:tabe<CR>:tabm<CR>
@@ -88,37 +92,50 @@ noremap  <C-N> <ESC>:tabn<CR>
 inoremap <C-N> <ESC>:tabn<CR>
 
 " Plugins
-noremap <C-E> :NERDTreeToggle<CR>
+noremap <F1> :NERDTreeToggle<CR>
+noremap <F2> :TagbarToggle<CR>
 
 " Need sane movement
+map      #     <nop>
 noremap  <C-H> <C-B>
 noremap  <C-J> <C-E>
 noremap  <C-K> <C-Y>
 noremap  <C-L> <C-F>
 map      <C-B> <nop>
+map      <C-E> <nop>
 map      <C-Y> <nop>
+map      <C-F> <nop>
+"map      <C-U> <nop>
+"map      <C-D> <nop>
+
 " Make j and k work as expected in wrapped lines
 map j gj
 map k gk
 
-" Window stuff
-map <C-W>< <nop>
-map <C-W>> <nop>
-noremap <C-W>+ :vertical resize -3<CR>
-noremap <C-W># :vertical resize +3<CR>
+" Window resizing stuff
+noremap  <C-W>, <C-W><
+noremap  <C-W>. <C-W>>
+"noremap <C-W>+ <C-W>+
+noremap  <C-W># <C-W>-
 
 " Save via sudo
 cmap w!! w !sudo tee >/dev/null %
+
+" ctags support
+noremap <C-CR> <C-]>
+noremap <C-BS> :pop<CR>
 
 " Quick access for commonly used stuff
 let mapleader = ","
 nnoremap <leader><space> :noh<cr>
 nnoremap <leader>q       :tabdo q!<cr>
 nnoremap <leader>z       :tabdo wq!<cr>
-nnoremap <leader>D       :set ff=unix<cr>
-nnoremap <leader>d       :set ff=dos<cr>
-nnoremap <leader>L       :set fenc=utf8<cr>
-nnoremap <leader>l       :set fenc=latin1<cr>
+nnoremap <leader>s       :w<cr>
+nnoremap <leader>f       :set ff=unix<cr>
+nnoremap <leader>F       :set ff=dos<cr>
+nnoremap <leader>e       :set fenc=utf8<cr>
+nnoremap <leader>E       :set fenc=latin1<cr>
+set pastetoggle=<leader>p
 
 " Use tab instead of % for parens matching
 nnoremap <tab> %
@@ -136,36 +153,31 @@ au BufWinEnter * call matchadd('ColorColumn', '\%81v', 100)
 " Have a nice status line (this expects utf8 being used in gui mode)
 function! SetStatusLine()
   let statusline="%#StatusLine#"
-  if (expand('%:f') == "")
-    " no file? no status line!
-    let statusline.=""
+  if (&modified)
+    let statusline.="%#StatusLineWarning#"
+    if has("gui_running")
+      " \u2718 is HEAVY BALLOT X
+      exec "let statusline.=' \u2718'"
+    else
+      let statusline.=" !"
+    endif
   else
-    if (&modified)
-      let statusline.="%#StatusLineWarning#"
-      if has("gui_running")
-        " \u2718 is HEAVY BALLOT X
-        exec "let statusline.=' \u2718'"
-      else
-        let statusline.=" !"
-      endif
-    else
-      let statusline.="%#StatusLineOK#"
-      if has("gui_running")
-        " \u2718 is HEAVY CHECK MARK
-        exec "let statusline.=' \u2714'"
-      endif
+    let statusline.="%#StatusLineOK#"
+    if has("gui_running")
+      " \u2718 is HEAVY CHECK MARK
+      exec "let statusline.=' \u2714'"
     endif
-    let statusline.=" %t %*%="
-    let statusline.="  mode:"
-    if (&readonly)
-      let statusline.="%#StatusLineRed#ro%*"
-    else
-      let statusline.="%#StatusLineWhite#rw%*"
-    endif
-    let statusline.="  enc:%#StatusLineWhite#%{&fenc}%*"
-    let statusline.="  ff:%#StatusLineWhite#%{&ff}%*"
-    let statusline.="  %15.15(%c/%l%) "
   endif
+  let statusline.=" %t %*%="
+  let statusline.="  mode:"
+  if (&readonly)
+    let statusline.="%#StatusLineReadonly#ro%*"
+  else
+    let statusline.="%#StatusLineWhite#rw%*"
+  endif
+  let statusline.="  enc:%#StatusLineWhite#%{&fenc}%*"
+  let statusline.="  ff:%#StatusLineWhite#%{&ff}%*"
+  let statusline.="  %22.22(%v:%l/%L%) "
   return statusline
 endfunction
 set statusline=%!SetStatusLine()

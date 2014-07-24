@@ -10,9 +10,10 @@ alias srcver='( eval $(/usr/bin/grep -e "^TYPE=" -e "^REVISION=" -e "^BRANCH=" /
 alias tm="/usr/bin/tail -F /var/log/messages"
 
 alias ascii="/usr/bin/sed '18,+15!d' /usr/share/misc/ascii"
+alias cgrep="grep --color=always"
 alias h="history"
 alias la="ls -A"
-alias less="less -QSX"
+alias less="less -QSXR"
 alias ll="ls -Failo"
 alias lock="clear; /usr/bin/lock -npv"
 alias ls="ls -F"
@@ -35,6 +36,16 @@ case $TERM in
     }
     bindkey "[H" beginning-of-line
     bindkey "[F" end-of-line
+    if [ -n "$DISPLAY" ]
+    then
+      bindkey "Od" backward-word
+      bindkey "Oc" forward-word
+    else
+### XXX: Fix me!
+      bindkey "Od" backward-word
+      bindkey "Oc" forward-word
+### XXX: Fix me!
+    fi
     ;;
   screen*)
     precmd()  { # idle
@@ -47,6 +58,8 @@ case $TERM in
     }
     bindkey "[1~" beginning-of-line
     bindkey "[4~" end-of-line
+    bindkey "OD"  backward-word
+    bindkey "OC"  forward-word
     ;;
 esac
 

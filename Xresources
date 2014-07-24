@@ -1,11 +1,11 @@
 Xcursor.theme:  redglass
-Xcursor.size:   24
+Xcursor.size:   16
 !-------------------------------------------------------------------
 Xft.antialias:  1
 Xft.autohint:   0
 Xft.dpi:        96
 Xft.hinting:    1
-Xft.hintstyle:  hintsfull
+Xft.hintstyle:  hintfull
 Xft.lcdfilter:  lcddefault
 Xft.rgba:       rgb
 !-------------------------------------------------------------------
@@ -25,10 +25,9 @@ XTerm*scrollTtyOutput:      false
 XTerm*selectToClipboard:    false
 XTerm*visualBell:           false
 !-------------------------------------------------------------------
-! These three font settings correspond to gvim´s  ":set guifont=Envy\ Code\ R\ 11"
-URxvt.font:                 xft:Envy Code R:pixelsize=13
-URxvt.boldFont:             xft:Envy Code R:pixelsize=13:bold
-URxvt.letterSpace:          -1
+! These font settings correspond to gvim´s  ":set guifont=Envy\ Code\ R\ 11"
+URxvt.font:                 xft:Envy Code R:pixelsize=12.5
+URxvt.boldFont:             xft:Envy Code R:pixelsize=12.5:bold
 
 URxvt.perl-ext:             default,matcher,-selection
 URxvt.url-launcher:         /usr/local/bin/opera
@@ -38,26 +37,31 @@ URxvt.skipScroll:           true
 URxvt.iso14755:             false
 URxvt.iso14755_52:          false
 URxvt.depth:                32
-URxvt.background:           rgba:ffff/ffff/ffff/dddd
-URxvt.borderColor:          rgba:ffff/ffff/ffff/dddd
+URxvt.cursorColor:          #c00000
+URxvt.foreground:           rgba:bbff/bbff/bbff/ffff
+URxvt.background:           rgba:0000/0000/0000/dddd
+URxvt.borderColor:          rgba:0000/0000/0000/dddd
 URxvt.tintColor:            #ffffff
 URxvt.shading:              0
 URxvt.externalBorder:       0
-URxvt.internalBorder:       2
+URxvt.internalBorder:       1
 URxvt.fading:               0
 URxvt.geometry:             92x26
-URxvt.iconFile:             /usr/local/kde4/share/icons/oxygen/32x32/apps/utilities-terminal.png
+URxvt.iconFile:             ~/.local/share/icons/freebsd_logo.ico
 URxvt.inheritPixmap:        false
 URxvt.jumpScroll:           false
 URxvt.saveLines:            5000
 URxvt.scrollBar:            false
 URxvt.visualBell:           true
+! Toggle colors
+URxvt.keysym.F10:           command:\033]10;rgba:0000/0000/0000/ffff\007\033]11;rgba:ffff/ffff/ffff/dddd\007
+URxvt.keysym.S-F10:         command:\033]10;rgba:bbff/bbff/bbff/ffff\007\033]11;rgba:0000/0000/0000/dddd\007
 ! Toggle transparency
-URxvt.keysym.F11:           command:\033]10;rgba:0000/0000/0000/3333\007\033]11;rgba:ffff/ffff/ffff/3333\007
-URxvt.keysym.S-F11:         command:\033]10;rgba:0000/0000/0000/ffff\007\033]11;rgba:ffff/ffff/ffff/dddd\007
+URxvt.keysym.F11:           command:\033]10;rgba:ffff/ffff/ffff/3333\007\033]11;rgba:0000/0000/0000/3333\007
+URxvt.keysym.S-F11:         command:\033]10;rgba:bbff/bbff/bbff/ffff\007\033]11;rgba:0000/0000/0000/dddd\007
 ! Toggle font size
-URxvt.keysym.F12:           command:\033]710;xft:Envy Code R:pixelsize=14\007\033]711;xft:Envy Code R:pixelsize=14:style=bold\007
-URxvt.keysym.S-F12:         command:\033]710;xft:Envy Code R:pixelsize=13\007\033]711;xft:Envy Code R:pixelsize=13:style=bold\007
+URxvt.keysym.F12:           command:\033]710;xft:Envy Code R:pixelsize=14\007\033]711;xft:Envy Code R:pixelsize=14:bold\007
+URxvt.keysym.S-F12:         command:\033]710;xft:Envy Code R:pixelsize=12.5\007\033]711;xft:Envy Code R:pixelsize=12.5:bold\007
 !-------------------------------------------------------------------
 ! black
 *color0:                    #000000
@@ -66,7 +70,7 @@ URxvt.keysym.S-F12:         command:\033]710;xft:Envy Code R:pixelsize=13\007\03
 *color1:                    #c00000
 *color9:                    #ff0000
 ! green
-*color2:                    #3c9200
+*color2:                    #008000
 *color10:                   #6ab915
 ! yellow
 *color3:                    #bd9800
