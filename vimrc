@@ -1,5 +1,6 @@
 set autoindent
 set backspace=2
+set cmdheight=1
 set directory=~/.vim/swap
 set fileencodings=utf8,latin1
 set expandtab
@@ -35,8 +36,7 @@ set ttyfast
 set visualbell
 set wildmenu
 
-" Reset some of the above in gvim
-if has("gui_running")
+if has('gui_running')
   set background=dark
   set clipboard=unnamedplus  " enable sane cut'n'paste (1/2)
   set encoding=utf8
@@ -52,13 +52,13 @@ if has("gui_running")
   set lines=40
   set guitablabel=%t\ %M
   set guifont=Envy\ Code\ R\ 10
+  "set guifont=PT\ Mono\ 9.25
   noremap  <F12>   :set guifont=Envy\ Code\ R\ 11<CR>
   noremap  <S-F12> :set guifont=Envy\ Code\ R\ 10<CR>
   noremap  <C-S> :update<CR>
   vnoremap <C-S> <C-C>:update<CR><ESC>
   inoremap <C-S> <C-O>:update<CR><ESC>
 endif
-
 
 colorscheme gaul
 syntax on
@@ -92,19 +92,20 @@ noremap  <C-N> <ESC>:tabn<CR>
 inoremap <C-N> <ESC>:tabn<CR>
 
 " Plugins
-noremap <F1> :NERDTreeToggle<CR>
-noremap <F2> :TagbarToggle<CR>
+noremap <F2> :NERDTreeToggle<CR>
+noremap <F3> :TagbarToggle<CR>
 
 " Need sane movement
 map      #     <nop>
-noremap  <C-H> <C-B>
-noremap  <C-J> <C-E>
-noremap  <C-K> <C-Y>
-noremap  <C-L> <C-F>
-map      <C-B> <nop>
-map      <C-E> <nop>
-map      <C-Y> <nop>
-map      <C-F> <nop>
+noremap  <C-h> <C-b>
+noremap  <C-j> <C-e>
+noremap  <C-k> <C-y>
+noremap  <C-l> <C-f>
+map      <C-b> <nop>
+map      <C-e> <nop>
+map      <C-y> <nop>
+map      <C-f> <nop>
+cnoremap <C-a> <Home>
 "map      <C-U> <nop>
 "map      <C-D> <nop>
 

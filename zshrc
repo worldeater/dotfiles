@@ -1,3 +1,5 @@
+# zmodload zsh/mathfunc
+
 set HIST_IGNORE_DUPS
 unsetopt CLOBBER
 unsetopt SINGLE_LINE_ZLE
@@ -11,6 +13,7 @@ alias tm="/usr/bin/tail -F /var/log/messages"
 
 alias ascii="/usr/bin/sed '18,+15!d' /usr/share/misc/ascii"
 alias cgrep="grep --color=always"
+alias clang99="/usr/bin/clang -std=c99 -Weverything -pedantic -fcolor-diagnostics"
 alias h="history"
 alias la="ls -A"
 alias less="less -QSXR"

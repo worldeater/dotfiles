@@ -9,12 +9,21 @@ Xft.hintstyle:  hintfull
 Xft.lcdfilter:  lcddefault
 Xft.rgba:       rgb
 !-------------------------------------------------------------------
-XTerm*faceName:             xft:Monospace:pixelsize=11
-XTerm*boldFont:             xft:Monospace:pixelsize=11
+XTerm*utf8:                 1
+XTerm*faceName:             xft:DejaVu Sans Mono:antialias=0:pixelsize=12
+!XTerm*faceName:             Terminus:antialias=0:size=9
+!XTerm*VT100*font:           xft:Monospace:pixelsize=12
+!XTerm*VT100*utf8Fonts.font: xft:Monospace:pixelsize=12
+!XTerm*VT100*wideFont:       xft:Monospace:pixelsize=12
+!XTerm*VT100*boldFont:       xft:Monospace:pixelsize=12:bold
+!XTerm*faceName:             xft:Monospace:pixelsize=12
+!XTerm*boldFont:             xft:Monospace:pixelsize=12:bold
+
+XTerm*internalBorder:       0
 XTerm*cacheDoublesize:      0
 XTerm*charClass:            33:48,35-38:48,39:43,42-47:48,58-59:48,61:48,63-64:48,126:48
 XTerm*deleteIsDEL:          true
-XTerm*eightBitInput:        false
+!XTerm*eightBitInput:        false
 XTerm*geometry:             80x25-100+35
 XTerm*highlightSelection:   false
 XTerm*metaSendsEscape:      false
@@ -25,12 +34,15 @@ XTerm*scrollTtyOutput:      false
 XTerm*selectToClipboard:    false
 XTerm*visualBell:           false
 !-------------------------------------------------------------------
-! These font settings correspond to gvim�s  ":set guifont=Envy\ Code\ R\ 11"
+! These font settings correspond to gvim´s  ":set guifont=Envy\ Code\ R\ 11"
 URxvt.font:                 xft:Envy Code R:pixelsize=12.5
 URxvt.boldFont:             xft:Envy Code R:pixelsize=12.5:bold
+!URxvt.font:                 xft:PT Mono:pixelsize=10.5
+!URxvt.boldFont:             xft:PT Mono:pixelsize=10.5:bold
 
-URxvt.perl-ext:             default,matcher,-selection
-URxvt.url-launcher:         /usr/local/bin/opera
+URxvt.perl-ext-common:      default,matcher,-selection-popup,-option-popup
+!URxvt.perl-ext:             default,matcher,-selection
+URxvt.url-launcher:         /home/fd/bin/firefox
 URxvt.matcher.button:       3
 URxvt.scrollWithBuffer:     false
 URxvt.skipScroll:           true
@@ -39,6 +51,8 @@ URxvt.iso14755_52:          false
 URxvt.depth:                32
 URxvt.cursorColor:          #c00000
 URxvt.foreground:           rgba:bbff/bbff/bbff/ffff
+!URxvt.background:           rgba:2222/2222/2222/ffff
+!URxvt.borderColor:          rgba:2222/2222/2222/ffff
 URxvt.background:           rgba:0000/0000/0000/dddd
 URxvt.borderColor:          rgba:0000/0000/0000/dddd
 URxvt.tintColor:            #ffffff
@@ -46,18 +60,17 @@ URxvt.shading:              0
 URxvt.externalBorder:       0
 URxvt.internalBorder:       1
 URxvt.fading:               0
-URxvt.geometry:             92x26
-URxvt.iconFile:             ~/.local/share/icons/freebsd_logo.ico
+URxvt.geometry:             80x25
+URxvt.iconFile:             /home/fd/.local/share/icons/freebsd_logo.ico
 URxvt.inheritPixmap:        false
 URxvt.jumpScroll:           false
-URxvt.saveLines:            5000
+URxvt.saveLines:            4096
 URxvt.scrollBar:            false
 URxvt.visualBell:           true
+URxvt.mapAlert:             true
+!URxvt.cutchars:             "'\"\\`&()*,;<=>?@[]^{|}│"
 ! Toggle colors
-URxvt.keysym.F10:           command:\033]10;rgba:0000/0000/0000/ffff\007\033]11;rgba:ffff/ffff/ffff/dddd\007
-URxvt.keysym.S-F10:         command:\033]10;rgba:bbff/bbff/bbff/ffff\007\033]11;rgba:0000/0000/0000/dddd\007
-! Toggle transparency
-URxvt.keysym.F11:           command:\033]10;rgba:ffff/ffff/ffff/3333\007\033]11;rgba:0000/0000/0000/3333\007
+URxvt.keysym.F11:           command:\033]10;rgba:bbff/bbff/bbff/ffff\007\033]11;rgba:2222/2222/2222/ffff\007
 URxvt.keysym.S-F11:         command:\033]10;rgba:bbff/bbff/bbff/ffff\007\033]11;rgba:0000/0000/0000/dddd\007
 ! Toggle font size
 URxvt.keysym.F12:           command:\033]710;xft:Envy Code R:pixelsize=14\007\033]711;xft:Envy Code R:pixelsize=14:bold\007

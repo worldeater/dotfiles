@@ -57,8 +57,8 @@ hi  Keyword            guifg=#ffcf7a  guibg=NONE     gui=none    ctermfg=NONE   
 hi  Number             guifg=NONE     guibg=NONE     gui=none    ctermfg=NONE   ctermbg=NONE    cterm=none
 hi  PreProc            guifg=#faf4c6  guibg=NONE     gui=none    ctermfg=NONE   ctermbg=NONE    cterm=none
 hi  Special            guifg=#ffcf7a  guibg=NONE     gui=none    ctermfg=NONE   ctermbg=NONE    cterm=none
-"hi  Statement          guifg=#b4b8c0  guibg=NONE     gui=none    ctermfg=NONE   ctermbg=NONE    cterm=none
-hi  Statement          guifg=NONE     guibg=NONE     gui=none    ctermfg=NONE   ctermbg=NONE    cterm=none
+hi  Statement          guifg=#b4b8c0  guibg=NONE     gui=none    ctermfg=NONE   ctermbg=NONE    cterm=none
+"hi  Statement          guifg=NONE     guibg=NONE     gui=none    ctermfg=NONE   ctermbg=NONE    cterm=none
 hi  String             guifg=#bfd66a  guibg=NONE     gui=none    ctermfg=NONE   ctermbg=NONE    cterm=none
 hi  Todo               guifg=#ffffff  guibg=#ff6600  gui=italic  ctermfg=black  ctermbg=yellow  cterm=bold
 "hi  Type               guifg=#b4b8c0  guibg=NONE     gui=none    ctermfg=NONE   ctermbg=NONE    cterm=none
