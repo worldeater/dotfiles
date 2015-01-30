@@ -20,6 +20,7 @@ alias less="less -QSXR"
 alias ll="ls -Failo"
 alias lock="clear; /usr/bin/lock -npv"
 alias ls="ls -F"
+alias objdump="/usr/local/bin/objdump"
 alias reboot="/usr/local/bin/sudo shutdown -r now"
 alias sagent="pkill ssh-agent; eval \$(/usr/bin/ssh-agent) && ssh-add"
 alias shutdown="/usr/local/bin/sudo shutdown -p now"
@@ -30,7 +31,7 @@ alias medium="sudo sysctl dev.acpi_ibm.0.lcd_brightness=4"
 alias bright="sudo sysctl dev.acpi_ibm.0.lcd_brightness=7"
 
 case $TERM in
-  xterm*|rxvt)
+  rxvt)
     precmd()  { # idle
       printf "\033]0;%s\007" "${USER}@$(hostname -s) : ${PWD}"
     }
@@ -39,16 +40,20 @@ case $TERM in
     }
     bindkey "[H" beginning-of-line
     bindkey "[F" end-of-line
-    if [ -n "$DISPLAY" ]
-    then
-      bindkey "Od" backward-word
-      bindkey "Oc" forward-word
-    else
-### XXX: Fix me!
-      bindkey "Od" backward-word
-      bindkey "Oc" forward-word
-### XXX: Fix me!
-    fi
+    bindkey "Od" backward-word
+    bindkey "Oc" forward-word
+    ;;
+  xterm)
+    precmd()  { # idle
+      printf "\033]0;%s\007" "${USER}@$(hostname -s) : ${PWD}"
+    }
+    preexec() { # busy
+      printf "\033]0;%s\007" "${USER}@$(hostname -s) : ${PWD} - ${1}"
+    }
+    bindkey "[H" beginning-of-line
+    bindkey "[F" end-of-line
+    bindkey "[1;5D" backward-word
+    bindkey "[1;5C" forward-word
     ;;
   screen*)
     precmd()  { # idle

@@ -35,24 +35,29 @@ XTerm*selectToClipboard:    false
 XTerm*visualBell:           false
 !-------------------------------------------------------------------
 ! These font settings correspond to gvim´s  ":set guifont=Envy\ Code\ R\ 11"
-URxvt.font:                 xft:Envy Code R:pixelsize=12.5
-URxvt.boldFont:             xft:Envy Code R:pixelsize=12.5:bold
-!URxvt.font:                 xft:PT Mono:pixelsize=10.5
-!URxvt.boldFont:             xft:PT Mono:pixelsize=10.5:bold
+URxvt.letterSpace:          0
+URxvt.font:                 xft:Envy Code R:pixelsize=12.5,\
+                            xft:DejaVu Sans Mono:pixelsize=12.5
+URxvt.boldFont:             xft:Envy Code R:pixelsize=12.5,\
+                            xft:DejaVu Sans Mono:pixelsize=12.5
+URxvt.italicFont:           xft:Envy Code R:pixelsize=12.5,\
+                            xft:DejaVu Sans Mono:pixelsize=12.5
+URxvt.boldItalicFont:       xft:Envy Code R:pixelsize=12.5,\
+                            xft:DejaVu Sans Mono:pixelsize=12.5
 
-URxvt.perl-ext-common:      default,matcher,-selection-popup,-option-popup
+URxvt.perl-ext:             matcher
+URxvt.perl-ext-common:      -selection-popup,-option-popup
+!URxvt.perl-ext-common:      default,matcher,-selection-popup,-option-popup
 !URxvt.perl-ext:             default,matcher,-selection
 URxvt.url-launcher:         /home/fd/bin/firefox
 URxvt.matcher.button:       3
 URxvt.scrollWithBuffer:     false
 URxvt.skipScroll:           true
-URxvt.iso14755:             false
-URxvt.iso14755_52:          false
+URxvt.iso14755:             true
+URxvt.iso14755_52:          true
 URxvt.depth:                32
 URxvt.cursorColor:          #c00000
 URxvt.foreground:           rgba:bbff/bbff/bbff/ffff
-!URxvt.background:           rgba:2222/2222/2222/ffff
-!URxvt.borderColor:          rgba:2222/2222/2222/ffff
 URxvt.background:           rgba:0000/0000/0000/dddd
 URxvt.borderColor:          rgba:0000/0000/0000/dddd
 URxvt.tintColor:            #ffffff
@@ -68,7 +73,7 @@ URxvt.saveLines:            4096
 URxvt.scrollBar:            false
 URxvt.visualBell:           true
 URxvt.mapAlert:             true
-!URxvt.cutchars:             "'\"\\`&()*,;<=>?@[]^{|}│"
+URxvt.cutchars:             "\\\"'`&()*,;<=>?@[]^{|}│"
 ! Toggle colors
 URxvt.keysym.F11:           command:\033]10;rgba:bbff/bbff/bbff/ffff\007\033]11;rgba:2222/2222/2222/ffff\007
 URxvt.keysym.S-F11:         command:\033]10;rgba:bbff/bbff/bbff/ffff\007\033]11;rgba:0000/0000/0000/dddd\007

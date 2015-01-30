@@ -79,10 +79,6 @@ vnoremap <F1> <nop>
 noremap  Q    <nop>
 noremap  K    <nop>
 
-" Make F3 the "goto next/prev search result" key
-noremap  <F3>    n
-noremap  <S-F3>  N
-
 " Tabs
 noremap  <C-T> <ESC>:tabe<CR>:tabm<CR>
 inoremap <C-T> <ESC>:tabe<CR>:tabm<CR>

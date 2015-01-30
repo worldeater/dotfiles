@@ -20,3 +20,7 @@ export GOROOT=/usr/local/go/
 export PATH=/usr/local/libexec/ccache:$PATH
 export CCACHE_PATH=/usr/bin:/usr/local/bin
 
+###  video acceleration
+export VDPAU_DRIVER=va_gl
+export LIBVA_DRIVER_NAME=i965
+

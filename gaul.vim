@@ -12,17 +12,17 @@ endif
 
 let colors_name = "gaul"
 
+set background=dark
+
 "" Console/GUI switch
 if expand("$DISPLAY") == "$DISPLAY"
   "" Console
-  set background=dark
   hi  LineNr           guifg=#808080  guibg=#000000  gui=none    ctermfg=black  ctermbg=NONE    cterm=bold
   hi  NonText          guifg=#404040  guibg=NONE     gui=none    ctermfg=black  ctermbg=NONE    cterm=bold
   hi  SpecialKey       guifg=#404040  guibg=NONE     gui=none    ctermfg=black  ctermbg=NONE    cterm=bold
   hi  Search           guifg=#faf4c6  guibg=#3c414c  gui=none    ctermfg=white  ctermbg=yellow  cterm=bold
 else
   "" Xorg
-  set background=dark
   hi  LineNr           guifg=#404040  guibg=NONE     gui=none    ctermfg=black  ctermbg=NONE    cterm=bold
   hi  NonText          guifg=#404040  guibg=NONE     gui=none    ctermfg=black  ctermbg=NONE    cterm=bold
   hi  SpecialKey       guifg=#404040  guibg=NONE     gui=none    ctermfg=black  ctermbg=NONE    cterm=bold
